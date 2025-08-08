@@ -1,8 +1,8 @@
-
+-- referencie que √© um challenge by coodesh:
 /*
 ########################################################################
 #         	   			     QUERY 1  			                       
-#  Listar todos Clientes que n„o tenham realizado uma compra;          
+#  Listar todos Clientes que n√£o tenham realizado uma compra;          
 ######################################################################## 
 */
 
@@ -15,11 +15,11 @@ where ord.[order_id] is null
 /*
 ########################################################################
 #         	   			     QUERY 2  			                       
-#  Listar os Produtos que n„o tenham sido comprados        
+#  Listar os Produtos que n√£o tenham sido comprados        
 ######################################################################## 
 */
 
-/*Podemos utilizar os campos [order_status] e [shipped_date] para identificar quais produtos n„o efetivaram a compra */
+/*Podemos utilizar os campos [order_status] e [shipped_date] para identificar quais produtos n√£o efetivaram a compra */
 
 select  pro.[product_id], pro.[product_name] 
 from	production.products pro
@@ -86,7 +86,7 @@ group by bra.[brand_name], sto.[store_name]
 /*
 #######################################################################
 #         	   			     QUERY 5  			                       
-#   Listar os Funcionarios que n„o estejam relacionados a um Pedido.   
+#   Listar os Funcionarios que n√£o estejam relacionados a um Pedido.   
 ######################################################################## 
 */
 
@@ -94,11 +94,12 @@ select sta.[staff_id], sta.[first_name], sta.[last_name]
 from  sales.staffs sta
 where sta.[staff_id] not in (select ord.[staff_id]  From sales.orders ord)
  
--- … possÌvel obter o mesmo resultado utilizando duas formas diferentes de escrita da consulta, atravÈs de join ou do comando not in
+-- √â poss√≠vel obter o mesmo resultado utilizando duas formas diferentes de escrita da consulta, atrav√©s de join ou do comando not in
 
 select sta.[staff_id], sta.[first_name], sta.[last_name]
 from  sales.staffs sta
 left join sales.orders ord
 on sta.[staff_id] = ord.[staff_id]
 where ord.[staff_id] is null
+
 
