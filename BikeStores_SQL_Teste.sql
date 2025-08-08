@@ -1,4 +1,4 @@
--- referencie que é um challenge by coodesh:
+-- Challenge by coodesh:
 /*
 ########################################################################
 #         	   			     QUERY 1  			                       
@@ -101,5 +101,6 @@ from  sales.staffs sta
 left join sales.orders ord
 on sta.[staff_id] = ord.[staff_id]
 where ord.[staff_id] is null
+
 
 
